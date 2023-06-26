@@ -25,4 +25,6 @@
     <string name="implicit">First Activity</string>
     <string name="explicitButton">Explicit Button</string>
     <string name="secondActivity">Second Activity</string>
+    <string name="explicitEditTextHint">type anything</string>
+    <string name="send">Send</string>
 </resources>

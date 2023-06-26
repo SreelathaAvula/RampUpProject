@@ -16,16 +16,16 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnActivityLifeCycle"
             android:layout_width="0dp"
-            android:background="@color/lightBlue"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:background="@color/lightBlue"
             android:text="@string/btnActivityLifeCycle"
             android:textAllCaps="false"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toTopOf="@id/btnFragmentLifeCycle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@id/btnFragmentLifeCycle"
             tools:text="@string/btnActivityLifeCycle" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -33,14 +33,14 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:background="@color/lightBlue"
             android:text="@string/btnFragmentLifeCycle"
             android:textAllCaps="false"
             android:textSize="24sp"
-            android:background="@color/lightBlue"
+            app:layout_constraintBottom_toTopOf="@id/btnActivityLifeCycleNoBind"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnActivityLifeCycle"
-            app:layout_constraintBottom_toTopOf="@id/btnActivityLifeCycleNoBind"
             tools:text="@string/btnFragmentLifeCycle" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -48,26 +48,35 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:textSize="24sp"
             android:background="@color/lightBlue"
             android:text="@string/ActivityLifeCycleWithNoBind"
             android:textAllCaps="false"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnFragmentLifeCycle"
-          />
+            app:layout_constraintTop_toBottomOf="@+id/btnFragmentLifeCycle" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/intentButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textSize="24sp"
-            android:text="@string/intentsButton"
+            android:layout_margin="8dp"
             android:background="@color/lightBlue"
+            android:text="@string/intentsButton"
+            android:textAllCaps="false"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnActivityLifeCycleNoBind"></androidx.appcompat.widget.AppCompatButton>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_margin="8dp"
-            app:layout_constraintTop_toBottomOf="@id/btnActivityLifeCycleNoBind"
+            app:layout_constraintTop_toBottomOf="@id/intentButton"
+            android:background="@color/lightBlue"
             >
         </androidx.appcompat.widget.AppCompatButton>
     </androidx.constraintlayout.widget.ConstraintLayout>
