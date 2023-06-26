@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="buttonStyle">
+        <item name="color">#FF8BC34A</item>
+
+    </style>
+    <style name="buttonStyle1">
+        <item name="color">#1032ED</item>
+    </style>
+
+</resources>

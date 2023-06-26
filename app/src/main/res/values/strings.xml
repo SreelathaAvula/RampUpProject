@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">RampUp</string>
+    <string name="btnActivityLifeCycle">Activity LifeCycle</string>
+    <string name="btnFragmentLifeCycle">Fragment LifeCycle</string>
+    <string name="tvActivityStatus">Activity Status</string>
+    <string name="ActivityLifeCycleWithNoBind">Activity LifeCycle with NoBinding</string>
+    <string name="btnLifecycle">Lifecycle Stages Demo</string>
+    <string name="tvLifecycle">LifeCycle No Bind</string>
+    <string name="tvFragment">Fragments contains inside the activity if we click the button fragment it has to display the fragment</string>
+    <string name="fragButton">FRAGMENT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="tvFirst">......Displaying first fragment.....</string>
+    <string name="tvSecond">Displaying second fragment</string>
+    <string name="clickButton">CLICK HERE</string>
+    <string name="firstfrag">First Fragment</string>
+    <string name="secondfrag">.......Second Fragment ......
+        ......Displayed......
+        ......here.....
+        .</string>
+    <string name="FragFirstButton">FirstFragment</string>
+    <string name="FragSecondButton">SecondFragment</string>
+    <string name="intentsButton">Intents</string>
+    <string name="click">Click Here</string>
+    <string name="editTextHint">Type here</string>
+    <string name="implicit">The below shows the Implicit Intent</string>
+</resources>
