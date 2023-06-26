@@ -22,5 +22,7 @@
     <string name="intentsButton">Intents</string>
     <string name="click">Click Here</string>
     <string name="editTextHint">Type here</string>
-    <string name="implicit">The below shows the Implicit Intent</string>
+    <string name="implicit">First Activity</string>
+    <string name="explicitButton">Explicit Button</string>
+    <string name="secondActivity">Second Activity</string>
 </resources>

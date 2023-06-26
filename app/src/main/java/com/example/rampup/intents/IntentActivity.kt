@@ -11,6 +11,8 @@ import com.example.rampup.R
 class IntentActivity : AppCompatActivity() {
     lateinit var searchButton:Button
     lateinit var editText: EditText
+    lateinit var expliciIntent:Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_intent)
@@ -19,5 +21,13 @@ class IntentActivity : AppCompatActivity() {
         searchButton.setOnClickListener{
             startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(editText.text.toString())))
         }
+        expliciIntent=findViewById(R.id.explicitButton)
+        expliciIntent.setOnClickListener {
+            reDirectToSecondActivity()
+        }
+
     }
+
+    private fun reDirectToSecondActivity() {
+startActivity(Intent(this,SecondActivity::class.java))    }
 }

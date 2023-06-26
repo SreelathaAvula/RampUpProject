@@ -2,6 +2,7 @@ package com.example.rampup.intents
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.rampup.R
 
 class SecondActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -11,5 +11,8 @@
     <color name="firstFragmentColor">#9dbf3b</color>
     <color name="secondFragmentColor">#02047c</color>
     <color name="lightBlue">#A5E5EA</color>
+    <color name="yellow">#FFFC33</color>
+    <color name="lightGreen">#82c49e</color>
+    <color name="lightPink">#F8C8DE</color>
 
 </resources>

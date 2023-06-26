@@ -39,7 +39,6 @@ private fun setClickListener() {
         intentButton.setOnClickListener(this@MainActivity)
     }
 }
-
 override fun onClick(view: View?) {
     when(view?.id)
     {
@@ -56,27 +55,16 @@ override fun onClick(view: View?) {
 private fun redirectToActivityLifCycle() {
     startActivity(Intent(this, ActivityLifeCycle::class.java))
 }
-
-
-
     private fun redirectToFragmentPge() {
         startActivity(Intent(this@MainActivity,ActivityFragment ::class.java))
     }
-
-
     private fun redirectToLifCycle() {
         startActivity(Intent(this,LifeCycle::class.java))
     }
-
     private fun redirectToIntentPage() {
         startActivity(Intent(this@MainActivity,IntentActivity::class.java))
         Toast.makeText(this,"redirect to Intent Activity",Toast.LENGTH_SHORT).show()
-    }
-
-
-
-
-    /**
+    }/**
  *     Runs the specified action on the UI thread. If the current thread is the UI thread,
 
  */
@@ -85,7 +73,7 @@ private fun noClickListenerAttach() {
         Toast.makeText(this, "No click listener attached", Toast.LENGTH_SHORT).show()
     }
 }
-    override fun onBackPressed() {
+   /* override fun onBackPressed() {
         super.onBackPressed()
-    }
+    }*/
 }

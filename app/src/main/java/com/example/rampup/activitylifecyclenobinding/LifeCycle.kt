@@ -26,7 +26,6 @@ class LifeCycle : AppCompatActivity(){
     }
     private fun redirectToHomePage() {
         startActivity(Intent(this,MainActivity::class.java))
-
     }
 
     override fun onStart() {
