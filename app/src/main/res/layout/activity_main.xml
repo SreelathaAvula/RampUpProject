@@ -70,11 +70,15 @@
             app:layout_constraintTop_toBottomOf="@id/btnActivityLifeCycleNoBind"></androidx.appcompat.widget.AppCompatButton>
 
         <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/recyclerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_margin="8dp"
+            android:text="@string/recycle"
+            android:textSize="24sp"
+            android:textAllCaps="false"
             app:layout_constraintTop_toBottomOf="@id/intentButton"
             android:background="@color/lightBlue"
             >

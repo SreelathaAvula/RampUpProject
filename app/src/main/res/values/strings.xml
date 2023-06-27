@@ -25,6 +25,17 @@
     <string name="implicit">First Activity</string>
     <string name="explicitButton">Explicit Button</string>
     <string name="secondActivity">Second Activity</string>
-    <string name="explicitEditTextHint">type anything</string>
+    <string name="explicitEditTextHint">type name</string>
+    <string name="phoneHint">type Phone no</string>
+    <string name="scoreHint">type marks</string>
+    <string name="TrueOrNot">true or false</string>
     <string name="send">Send</string>
+    <string name="submit_button">ADD</string>
+    <string name="hintOfDetails">type name here </string>
+    <string name="hintOfPhoneNo">EnterPhoneNumber</string>
+    <string name="view_text">nameview</string>
+    <string name="delete_button">delete</string>
+    <string name="addButton">Add</string>
+    <string name="view_number">numberview</string>
+    <string name="recycle">RecyclerView</string>
 </resources>

@@ -11,6 +11,7 @@ import com.example.rampup.activitylifecycle.ActivityLifeCycle
 import com.example.rampup.activitylifecyclenobinding.LifeCycle
 import com.example.rampup.databinding.ActivityMainBinding
 import com.example.rampup.intents.IntentActivity
+import com.example.rampup.recyclerView.RecyclerActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     //used to obtain the simple name of the MainActivity class dynamically at runtime.
     private  val TAG = MainActivity::class.java.simpleName
 }*/
-private var binding: ActivityMainBinding? = null
+ var binding: ActivityMainBinding? = null
 
 override fun onCreate(savedInstanceState: Bundle?) {
     WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -37,6 +38,7 @@ private fun setClickListener() {
         btnFragmentLifeCycle.setOnClickListener(this@MainActivity)
         btnActivityLifeCycleNoBind.setOnClickListener(this@MainActivity)
         intentButton.setOnClickListener(this@MainActivity)
+        recyclerButton.setOnClickListener(this@MainActivity)
     }
 }
 override fun onClick(view: View?) {
@@ -46,9 +48,12 @@ override fun onClick(view: View?) {
         R.id.btnActivityLifeCycleNoBind->redirectToLifCycle()
         R.id.btnFragmentLifeCycle->redirectToFragmentPge()
         R.id.intentButton->redirectToIntentPage()
+        R.id.recyclerButton->redirectToRecyclerViewPage()
         else -> noClickListenerAttach()
     }
 }
+
+
     /**
  *  This method is used to start a new activity in Android. It takes an Intent as a parameter and launches the specified activity.
  */
@@ -68,11 +73,19 @@ private fun redirectToActivityLifCycle() {
  *     Runs the specified action on the UI thread. If the current thread is the UI thread,
 
  */
-private fun noClickListenerAttach() {
+    private fun redirectToRecyclerViewPage() {
+        startActivity(Intent(this@MainActivity,RecyclerActivity::class.java)
+        )
+        Toast.makeText(this,"redirect to Recycler Activity",Toast.LENGTH_SHORT).show()
+
+    }
+
+    private fun noClickListenerAttach() {
     runOnUiThread {
         Toast.makeText(this, "No click listener attached", Toast.LENGTH_SHORT).show()
     }
 }
+
    /* override fun onBackPressed() {
         super.onBackPressed()
     }*/
