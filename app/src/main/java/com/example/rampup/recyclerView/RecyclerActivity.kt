@@ -19,12 +19,12 @@ class RecyclerActivity : AppCompatActivity() {
     lateinit var nameEditText: EditText
     lateinit var contactEditText: EditText
     lateinit var addButton: Button
-    lateinit var display: TextView
-   // var detailsList: ArrayList<UserDetails> = ArrayList()
+    lateinit var display: RecyclerView
+
+    var detailsList: ArrayList<UserDetails> = ArrayList()
     lateinit var details: ArrayList<UserDetails>
 
-
-    //lateinit var userAdapter: UserDetailsAdapter
+    lateinit var userAdapter: UserDetailsAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
@@ -33,12 +33,10 @@ class RecyclerActivity : AppCompatActivity() {
         contactEditText = findViewById(R.id.contact_Details)
         addButton = findViewById(R.id.submit_button)
         display = findViewById(R.id.display_id)
-
         //recycleId = findViewById(R.id.recycle_id)
-
         loadData()
         addButton.setOnClickListener {
-            saveData(nameEditText.text.toString(),contactEditText.text.toString())
+            saveData(nameEditText.text.toString(), contactEditText.text.toString())
             Log.d("RecyclerActivity", " oncreate on recyclerActivity: ")
 
         }
@@ -47,10 +45,10 @@ class RecyclerActivity : AppCompatActivity() {
     private fun loadData() {
         Log.d("RecyclerActivity", " loadData on recyclerActivity: ")
 
-        val sharedpref=getSharedPreferences("RECYCLEDATA", MODE_PRIVATE)
-        val gson=Gson()
+        val sharedpref = getSharedPreferences("RECYCLEDATA", MODE_PRIVATE)
+        val gson = Gson()
 
-        val json:String?=sharedpref.getString("user_data",null)
+        val json: String? = sharedpref.getString("user_data", null)
 
         if (json != null) {
             val type: Type = object : TypeToken<ArrayList<UserDetails>>() {}.type
@@ -60,34 +58,36 @@ class RecyclerActivity : AppCompatActivity() {
         }
         if (details == null) {
             details = ArrayList()
-        }
-        else{
-            val stringBuilder = StringBuilder()
-
+        } else {
+            userAdapter = UserDetailsAdapter(details) // Set the userAdapter again
+            display.adapter = userAdapter
+            display.layoutManager = LinearLayoutManager(this)
+            display.adapter?.notifyDataSetChanged()
+            /*val stringBuilder = StringBuilder()
             for (i in details.indices) {
                 stringBuilder.append(details[i].name)
                 stringBuilder.append(" - ")
                 stringBuilder.append(details[i].contact)
                 stringBuilder.append("\n") // Add a line break between each name
-            }
-            display.text = stringBuilder.toString() //
-            /*userAdapter = UserDetailsAdapter(details) // Set the userAdapter again
-            recycleId.adapter = userAdapter
-            recycleId.adapter?.notifyDataSetChanged()*/
+            }*/
+            // display.text = stringBuilder.toString() //
+
         }
     }
+
     private fun saveData(name: String, contact: String) {
-        val editor=getSharedPreferences("RECYCLEDATA", MODE_PRIVATE).edit()
+        val editor = getSharedPreferences("RECYCLEDATA", MODE_PRIVATE).edit()
         //gson arraylist into string expression
-        val gson=Gson()
-        details.add(UserDetails(nameEditText.text.toString(),contactEditText.text.toString().toInt()))
-        var json:String=gson.toJson(details)
-        editor.putString("user_data",json)
+        val gson = Gson()
+        details.add(
+            UserDetails(
+                nameEditText.text.toString(),
+                contactEditText.text.toString().toInt()
+            )
+        )
+        var json: String = gson.toJson(details)
+        editor.putString("user_data", json)
         editor.apply()
         loadData()
-       /* userAdapter = UserDetailsAdapter(details) // Set the userAdapter again
-        recycleId.adapter = userAdapter
-        userAdapter.notifyDataSetChanged()*/
     }
-
 }
