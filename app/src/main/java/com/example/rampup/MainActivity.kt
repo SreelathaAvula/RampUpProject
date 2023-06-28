@@ -2,6 +2,7 @@ package com.example.rampup
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -81,6 +82,7 @@ private fun redirectToActivityLifCycle() {
         startActivity(Intent(this@MainActivity,RecyclerActivity::class.java)
         )
         Toast.makeText(this,"redirect to Recycler Activity",Toast.LENGTH_SHORT).show()
+        Log.d("MainActivity", " recycler button clicked redirectToRecyclerViewPage: ")
 
     }
     private fun redirectToSharedActivityPage() {

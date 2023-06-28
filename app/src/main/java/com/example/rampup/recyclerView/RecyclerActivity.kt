@@ -3,21 +3,28 @@ package com.example.rampup.recyclerView
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rampup.R
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import java.lang.reflect.Type
 
 class RecyclerActivity : AppCompatActivity() {
     lateinit var nameEditText: EditText
     lateinit var contactEditText: EditText
     lateinit var addButton: Button
-    lateinit var recycleId: RecyclerView
-     var detailsList:ArrayList<UserDetails> = ArrayList()
+    lateinit var display: TextView
+   // var detailsList: ArrayList<UserDetails> = ArrayList()
+    lateinit var details: ArrayList<UserDetails>
 
-    lateinit var userAdapter:UserDetailsAdapter
+
+    //lateinit var userAdapter: UserDetailsAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_recycler)
@@ -25,41 +32,62 @@ class RecyclerActivity : AppCompatActivity() {
         nameEditText = findViewById(R.id.name_Details)
         contactEditText = findViewById(R.id.contact_Details)
         addButton = findViewById(R.id.submit_button)
-        recycleId=findViewById(R.id.recycle_id)
-        addButton.setOnClickListener{
-            detailsList.add(UserDetails( nameEditText.text.toString(),contactEditText.text.toString().toInt())
-            )
+        display = findViewById(R.id.display_id)
 
-            val sharedPreferences=getSharedPreferences("userDetailsPreference",Context.MODE_PRIVATE)
-            val editor=sharedPreferences.edit()
+        //recycleId = findViewById(R.id.recycle_id)
 
-            val name=nameEditText.text.toString()
-            val number=contactEditText.text.toString().toInt()
-            val details= arrayListOf<UserDetails>()
-            //store the list
-        //key ame DETAILS
-            editor.putString(name,"name" )
-            editor.putInt("Number", number)
-            editor.apply()
-            Toast.makeText(this@RecyclerActivity, "Data added to SharedPreferences", Toast.LENGTH_SHORT).show()
-            nameEditText.text.clear()
-            contactEditText.text.clear()
-            userAdapter = UserDetailsAdapter(detailsList) // Set the userAdapter again
-            recycleId.adapter = userAdapter
-            userAdapter.notifyDataSetChanged()
+        loadData()
+        addButton.setOnClickListener {
+            saveData(nameEditText.text.toString(),contactEditText.text.toString())
+            Log.d("RecyclerActivity", " oncreate on recyclerActivity: ")
+
         }
-      /*  userAdapter=UserDetailsAdapter(detailsList)
-        //data to be displayed in the RecyclerView.
-        recycleId.adapter = userAdapter*/
-        //items in the RecyclerView are displayed.vertically in linearlayout
-        recycleId.layoutManager = LinearLayoutManager(this)
     }
 
-    override fun onResume() {
-        super.onResume()
-        //get the list form shard pref
-//        detailsList.clear()
-        //detailstlit .addAdd(shared pref)
-        //key Name = DETAILS
+    private fun loadData() {
+        Log.d("RecyclerActivity", " loadData on recyclerActivity: ")
+
+        val sharedpref=getSharedPreferences("RECYCLEDATA", MODE_PRIVATE)
+        val gson=Gson()
+
+        val json:String?=sharedpref.getString("user_data",null)
+
+        if (json != null) {
+            val type: Type = object : TypeToken<ArrayList<UserDetails>>() {}.type
+            details = gson.fromJson(json, type)
+        } else {
+            details = ArrayList()
+        }
+        if (details == null) {
+            details = ArrayList()
+        }
+        else{
+            val stringBuilder = StringBuilder()
+
+            for (i in details.indices) {
+                stringBuilder.append(details[i].name)
+                stringBuilder.append(" - ")
+                stringBuilder.append(details[i].contact)
+                stringBuilder.append("\n") // Add a line break between each name
+            }
+            display.text = stringBuilder.toString() //
+            /*userAdapter = UserDetailsAdapter(details) // Set the userAdapter again
+            recycleId.adapter = userAdapter
+            recycleId.adapter?.notifyDataSetChanged()*/
+        }
     }
+    private fun saveData(name: String, contact: String) {
+        val editor=getSharedPreferences("RECYCLEDATA", MODE_PRIVATE).edit()
+        //gson arraylist into string expression
+        val gson=Gson()
+        details.add(UserDetails(nameEditText.text.toString(),contactEditText.text.toString().toInt()))
+        var json:String=gson.toJson(details)
+        editor.putString("user_data",json)
+        editor.apply()
+        loadData()
+       /* userAdapter = UserDetailsAdapter(details) // Set the userAdapter again
+        recycleId.adapter = userAdapter
+        userAdapter.notifyDataSetChanged()*/
+    }
+
 }

@@ -30,29 +30,27 @@ class UserDetailsAdapter(val details: ArrayList<UserDetails>) :
         holder.name.text= userName.name
         val userNumber:UserDetails=details[position]
         holder.number.text=userNumber.contact.toString()
-        holder.delete.setOnClickListener {
+      /*  holder.delete.setOnClickListener {
             deleteEvent(position)
         }
         holder.add.setOnClickListener {
             addObjectsIntoSharedPreferences(position)
-        }
+        }*/
     }
 
     private fun addObjectsIntoSharedPreferences(position: Int) {
 
     }
 
-    private fun deleteEvent(position: Int) {
+  /*  private fun deleteEvent(position: Int) {
         details.remove(details.get(position))
         notifyDataSetChanged()
     }
-
+*/
 
     class userDetailViewHolder(itemView: View) : ViewHolder(itemView) {
         val name: TextView = itemView.findViewById(R.id.nameview)
         val number: TextView = itemView.findViewById(R.id.numberView)
-        val delete: Button = itemView.findViewById(R.id.deleteButton)
-        val add: Button = itemView.findViewById(R.id.addButton)
 
     }
 
