@@ -12,6 +12,7 @@ import com.example.rampup.activitylifecyclenobinding.LifeCycle
 import com.example.rampup.databinding.ActivityMainBinding
 import com.example.rampup.intents.IntentActivity
 import com.example.rampup.recyclerView.RecyclerActivity
+import com.example.rampup.sharedPreferences.SharedActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     //used to obtain the simple name of the MainActivity class dynamically at runtime.
     private  val TAG = MainActivity::class.java.simpleName
 }*/
- var binding: ActivityMainBinding? = null
+private var binding: ActivityMainBinding? = null
 
 override fun onCreate(savedInstanceState: Bundle?) {
     WindowCompat.setDecorFitsSystemWindows(window, false)
@@ -39,6 +40,7 @@ private fun setClickListener() {
         btnActivityLifeCycleNoBind.setOnClickListener(this@MainActivity)
         intentButton.setOnClickListener(this@MainActivity)
         recyclerButton.setOnClickListener(this@MainActivity)
+        sharedButton.setOnClickListener(this@MainActivity)
     }
 }
 override fun onClick(view: View?) {
@@ -49,9 +51,11 @@ override fun onClick(view: View?) {
         R.id.btnFragmentLifeCycle->redirectToFragmentPge()
         R.id.intentButton->redirectToIntentPage()
         R.id.recyclerButton->redirectToRecyclerViewPage()
+        R.id.sharedButton->redirectToSharedActivityPage()
         else -> noClickListenerAttach()
     }
 }
+
 
 
     /**
@@ -79,6 +83,10 @@ private fun redirectToActivityLifCycle() {
         Toast.makeText(this,"redirect to Recycler Activity",Toast.LENGTH_SHORT).show()
 
     }
+    private fun redirectToSharedActivityPage() {
+        startActivity(Intent(this@MainActivity,SharedActivity::class.java))
+    }
+
 
     private fun noClickListenerAttach() {
     runOnUiThread {

@@ -38,4 +38,6 @@
     <string name="addButton">Add</string>
     <string name="view_number">numberview</string>
     <string name="recycle">RecyclerView</string>
+    <string name="sharedButton">Shared Preferences</string>
+    <string name="shareHint"></string>
 </resources>
