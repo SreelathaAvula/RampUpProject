@@ -12,15 +12,16 @@ import com.example.rampup.activitylifecycle.ActivityLifeCycle
 import com.example.rampup.activitylifecyclenobinding.LifeCycle
 import com.example.rampup.databinding.ActivityMainBinding
 import com.example.rampup.intents.IntentActivity
+import com.example.rampup.recycler.RecyclerViewActivity
 import com.example.rampup.recyclerView.RecyclerActivity
+import com.example.rampup.services.ServiceActivity
 import com.example.rampup.sharedPreferences.SharedActivity
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
-
-/*companion object {
+companion object {
     //used to obtain the simple name of the MainActivity class dynamically at runtime.
     private  val TAG = MainActivity::class.java.simpleName
-}*/
+}
 private var binding: ActivityMainBinding? = null
 
 override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,8 +30,7 @@ override fun onCreate(savedInstanceState: Bundle?) {
     binding = ActivityMainBinding.inflate(layoutInflater)
     setContentView(binding?.root)
     setClickListener()
-}
-/**
+}/**
  * Your comments
  */
 private fun setClickListener() {
@@ -42,6 +42,9 @@ private fun setClickListener() {
         intentButton.setOnClickListener(this@MainActivity)
         recyclerButton.setOnClickListener(this@MainActivity)
         sharedButton.setOnClickListener(this@MainActivity)
+        serviceButton.setOnClickListener(this@MainActivity)
+        recyclerviewButton.setOnClickListener(this@MainActivity)
+        Log.d(TAG, "setClickListener of servicw in main activity: ")
     }
 }
 override fun onClick(view: View?) {
@@ -53,15 +56,11 @@ override fun onClick(view: View?) {
         R.id.intentButton->redirectToIntentPage()
         R.id.recyclerButton->redirectToRecyclerViewPage()
         R.id.sharedButton->redirectToSharedActivityPage()
+        R.id.serviceButton->redirectToServicePage()
+        R.id.recyclerviewButton->redirectToRecyclerView()
         else -> noClickListenerAttach()
     }
 }
-
-
-
-    /**
- *  This method is used to start a new activity in Android. It takes an Intent as a parameter and launches the specified activity.
- */
 private fun redirectToActivityLifCycle() {
     startActivity(Intent(this, ActivityLifeCycle::class.java))
 }
@@ -88,14 +87,17 @@ private fun redirectToActivityLifCycle() {
     private fun redirectToSharedActivityPage() {
         startActivity(Intent(this@MainActivity,SharedActivity::class.java))
     }
-
-
+    private fun redirectToServicePage() {
+        startActivity(Intent(this@MainActivity,ServiceActivity::class.java))
+        Log.d(TAG, "redirectToServicePage: ")
+    }
+    private fun redirectToRecyclerView() {
+startActivity(Intent(this@MainActivity,RecyclerViewActivity::class.java))    }
     private fun noClickListenerAttach() {
     runOnUiThread {
         Toast.makeText(this, "No click listener attached", Toast.LENGTH_SHORT).show()
     }
 }
-
    /* override fun onBackPressed() {
         super.onBackPressed()
     }*/

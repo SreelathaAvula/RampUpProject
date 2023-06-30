@@ -18,11 +18,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@color/lightBlue"
+            android:background="@color/primary"
             android:text="@string/btnActivityLifeCycle"
             android:textAllCaps="false"
+            android:textColor="@color/white"
             android:textSize="24sp"
-            app:layout_constraintBottom_toTopOf="@id/btnFragmentLifeCycle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -33,14 +33,16 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@color/lightBlue"
+            android:background="@color/primary"
             android:text="@string/btnFragmentLifeCycle"
             android:textAllCaps="false"
+            android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@id/btnActivityLifeCycleNoBind"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btnActivityLifeCycle"
+            app:layout_constraintVertical_chainStyle="packed"
             tools:text="@string/btnFragmentLifeCycle" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -48,9 +50,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@color/lightBlue"
+            android:background="@color/primary"
             android:text="@string/ActivityLifeCycleWithNoBind"
             android:textAllCaps="false"
+            android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,10 +64,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            android:background="@color/lightBlue"
+            android:background="@color/primary"
             android:text="@string/intentsButton"
             android:textAllCaps="false"
-            android:textSize="30sp"
+            android:textColor="@color/white"
+            android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/btnActivityLifeCycleNoBind"></androidx.appcompat.widget.AppCompatButton>
@@ -73,30 +77,60 @@
             android:id="@+id/recyclerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_margin="8dp"
+            android:background="@color/primary"
             android:text="@string/recycle"
-            android:textSize="24sp"
             android:textAllCaps="false"
-            app:layout_constraintTop_toBottomOf="@id/intentButton"
-            android:background="@color/lightBlue"
-            >
-        </androidx.appcompat.widget.AppCompatButton>
+            android:textSize="24sp"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/intentButton"></androidx.appcompat.widget.AppCompatButton>
+
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/sharedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_margin="8dp"
+            android:background="@color/primary"
             android:text="@string/sharedButton"
-            android:textSize="24sp"
+            android:textColor="@color/white"
             android:textAllCaps="false"
-            app:layout_constraintTop_toBottomOf="@id/recyclerButton"
-            android:background="@color/lightBlue"
-            >
-        </androidx.appcompat.widget.AppCompatButton>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recyclerButton"></androidx.appcompat.widget.AppCompatButton>
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/serviceButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@color/primary"
+            android:textColor="@color/white"
+            android:text="@string/Services"
+            android:textAllCaps="false"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sharedButton">
+        </androidx.appcompat.widget.AppCompatButton>
+<androidx.appcompat.widget.AppCompatButton
+    android:id="@+id/recyclerviewButton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@color/primary"
+    android:textColor="@color/white"
+    android:text="@string/recyclerView"
+    android:textAllCaps="false"
+    android:textSize="24sp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/serviceButton"
+    >
+
+
+    </androidx.appcompat.widget.AppCompatButton>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

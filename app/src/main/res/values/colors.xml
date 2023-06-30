@@ -14,5 +14,9 @@
     <color name="yellow">#FFFC33</color>
     <color name="lightGreen">#82c49e</color>
     <color name="lightPink">#F8C8DE</color>
+   <color name="red">#FF3C33</color>
+    <color name="grossGreen">#9dbf3b</color>
+    <color name="green">#D2017809</color>
+    <color name="primary">#FF018786</color>
 
 </resources>

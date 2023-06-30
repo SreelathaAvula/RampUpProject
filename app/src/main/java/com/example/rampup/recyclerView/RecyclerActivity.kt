@@ -40,8 +40,8 @@ class RecyclerActivity : AppCompatActivity() {
             Log.d("RecyclerActivity", " oncreate on recyclerActivity: ")
 
         }
-    }
 
+    }
     private fun loadData() {
         Log.d("RecyclerActivity", " loadData on recyclerActivity: ")
 
@@ -63,15 +63,8 @@ class RecyclerActivity : AppCompatActivity() {
             display.adapter = userAdapter
             display.layoutManager = LinearLayoutManager(this)
             display.adapter?.notifyDataSetChanged()
-            /*val stringBuilder = StringBuilder()
-            for (i in details.indices) {
-                stringBuilder.append(details[i].name)
-                stringBuilder.append(" - ")
-                stringBuilder.append(details[i].contact)
-                stringBuilder.append("\n") // Add a line break between each name
-            }*/
-            // display.text = stringBuilder.toString() //
-
+            nameEditText.text.clear()
+            contactEditText.text.clear()
         }
     }
 

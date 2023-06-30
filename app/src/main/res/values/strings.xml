@@ -37,7 +37,14 @@
     <string name="delete_button">delete</string>
     <string name="addButton">Add</string>
     <string name="view_number">numberview</string>
-    <string name="recycle">RecyclerView</string>
+    <string name="recycle">RecyclerView - Shared Preference</string>
     <string name="sharedButton">Shared Preferences</string>
     <string name="shareHint"></string>
+    <string name="Services">Services</string>
+    <string name="startService">Background Service - Playing music</string>
+    <string name="text">Services in Android</string>
+    <string name="start">Start Service</string>
+    <string name="stop">stop Service</string>
+    <string name="recyclerView">RecyclerView</string>
+    <string name="boundServiceButton">BoundService</string>
 </resources>

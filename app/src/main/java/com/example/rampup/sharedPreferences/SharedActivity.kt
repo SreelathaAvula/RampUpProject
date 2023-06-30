@@ -15,14 +15,14 @@ class SharedActivity : AppCompatActivity() {
         setContentView(binding.root)
         val editor=getSharedPreferences("my_data", MODE_PRIVATE)
         binding.nameText.setText(editor.getString("email",null))
-       val age= editor.getString("age",null)
+       val age= editor.getString("contact",null)
 
         binding.sendButton.setOnClickListener {
 
             val editor=getSharedPreferences("my_data", MODE_PRIVATE).edit()
             editor.putString("email",binding.nameText.text.toString())
-            editor.putInt("age",age?.toInt() ?: 0)
-
+            val age=binding.NumText.text.toString()
+            editor.putInt("contact",age?.toInt() ?: 0)
             editor.apply()
             startActivity(Intent(this@SharedActivity,SharedSecondActivity::class.java))
         }

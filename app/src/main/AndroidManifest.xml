@@ -11,6 +11,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RampUp"
         tools:targetApi="31">
+        <activity
+            android:name=".BroadcastReceiverActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".services.BoundService"
+            android:enabled="true"
+            android:exported="true"></service>
 
         <activity
             android:name=".MainActivity"
@@ -39,13 +47,29 @@
         <activity
             android:name=".recyclerView.RecyclerActivity"
             android:exported="false" />
-
         <activity
             android:name=".sharedPreferences.SharedActivity"
             android:exported="false" />
         <activity
             android:name=".sharedPreferences.SharedSecondActivity"
             android:exported="false" />
+        <activity
+            android:name=".services.ServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".services.StartedServiceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".recycler.RecyclerViewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".services.BoundServiceActivity"
+            android:exported="false" />
+
+        <service
+            android:name=".services.MusicService"
+            android:enabled="true"
+            android:exported="true" />
     </application>
 
 </manifest>
