@@ -10,6 +10,7 @@ import androidx.core.view.WindowCompat
 import com.example.rampup.FragmentCycle.ActivityFragment
 import com.example.rampup.activitylifecycle.ActivityLifeCycle
 import com.example.rampup.activitylifecyclenobinding.LifeCycle
+import com.example.rampup.broadcastreceiver.BroadcastReceiverActivity
 import com.example.rampup.databinding.ActivityMainBinding
 import com.example.rampup.intents.IntentActivity
 import com.example.rampup.recycler.RecyclerViewActivity
@@ -44,6 +45,7 @@ private fun setClickListener() {
         sharedButton.setOnClickListener(this@MainActivity)
         serviceButton.setOnClickListener(this@MainActivity)
         recyclerviewButton.setOnClickListener(this@MainActivity)
+        broadcastButton.setOnClickListener ( this@MainActivity )
         Log.d(TAG, "setClickListener of servicw in main activity: ")
     }
 }
@@ -58,10 +60,14 @@ override fun onClick(view: View?) {
         R.id.sharedButton->redirectToSharedActivityPage()
         R.id.serviceButton->redirectToServicePage()
         R.id.recyclerviewButton->redirectToRecyclerView()
+        R.id.broadcastButton->redirectToBroadcatActivityPage()
         else -> noClickListenerAttach()
     }
 }
-private fun redirectToActivityLifCycle() {
+
+
+
+    private fun redirectToActivityLifCycle() {
     startActivity(Intent(this, ActivityLifeCycle::class.java))
 }
     private fun redirectToFragmentPge() {
@@ -92,7 +98,15 @@ private fun redirectToActivityLifCycle() {
         Log.d(TAG, "redirectToServicePage: ")
     }
     private fun redirectToRecyclerView() {
-startActivity(Intent(this@MainActivity,RecyclerViewActivity::class.java))    }
+startActivity(Intent(this@MainActivity,RecyclerViewActivity::class.java))
+    }
+
+    private fun redirectToBroadcatActivityPage() {
+        startActivity(Intent(this@MainActivity,BroadcastReceiverActivity::class.java))
+    }
+
+
+
     private fun noClickListenerAttach() {
     runOnUiThread {
         Toast.makeText(this, "No click listener attached", Toast.LENGTH_SHORT).show()

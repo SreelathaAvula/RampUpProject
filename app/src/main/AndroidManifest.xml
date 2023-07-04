@@ -12,7 +12,7 @@
         android:theme="@style/Theme.RampUp"
         tools:targetApi="31">
         <activity
-            android:name=".BroadcastReceiverActivity"
+            android:name=".broadcastreceiver.BroadcastReceiverActivity"
             android:exported="false" />
 
         <service
@@ -65,7 +65,6 @@
         <activity
             android:name=".services.BoundServiceActivity"
             android:exported="false" />
-
         <service
             android:name=".services.MusicService"
             android:enabled="true"
